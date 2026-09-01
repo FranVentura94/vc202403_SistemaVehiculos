@@ -1,3 +1,6 @@
 <Solution>
+  <Project Path="Application/Application.csproj" />
   <Project Path="CRUD de Vehiculos/CRUD de Vehiculos.csproj" />
+  <Project Path="Domain/Domain.csproj" />
+  <Project Path="Infrastructure/Infrastructure.csproj" />
 </Solution>

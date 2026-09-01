@@ -12,11 +12,19 @@ public class VehiculosController : ControllerBase
 
     public VehiculosController(IMediator mediator)
     {
-        _mediator = mediator; // Solo inyectamos MediatR, no el repositorio directamente
+        _mediator = mediator;
     }
 
+    // Endpoint de prueba GET para ver estado desde el navegador o Swagger
+    [HttpGet]
+    public IActionResult Get()
+    {
+        return Ok(new { Mensaje = "API de Vehículos lista para procesar peticiones" });
+    }
+
+    // Endpoint POST mapeado a MediatR
     [HttpPost]
-    public async Task<IActionResult> Create(CreateVehiculoCommand command)
+    public async Task<IActionResult> Create([FromBody] CreateVehiculoCommand command)
     {
         var result = await _mediator.Send(command);
         return Ok(result);
